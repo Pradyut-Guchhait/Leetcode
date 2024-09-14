@@ -1,0 +1,39 @@
+Detailed Explanation:
+
+1.Negative Numbers Check:
+*The first condition if (x < 0) return false; handles negative numbers. Since negative numbers cannot be palindromes (e.g., -121 is not the same as 121-), the function immediately returns false for any negative input.
+
+2.Reversing the Number:
+*The variable n stores the original number x.
+*The while (n) loop iterates as long as n is not zero.
+*In each iteration:
+	d = n % 10; extracts the last digit of n.
+	k = k * 10 + d; appends this digit to k, effectively building the reversed number digit by digit.
+	n = n / 10; removes the last digit from n.
+
+3.Overflow Check:
+*The line if (k > (0x7fffffff - d) / 10) return false; ensures that adding the digit d to k does not cause an overflow.
+*0x7fffffff is the hexadecimal representation of the maximum positive value for a 32-bit signed integer, which is 2147483647. If adding d to k * 10 would exceed this limit, the function returns false because it would lead to an incorrect result.
+
+4.Palindrome Check:
+*After the loop finishes, the function compares the reversed number k with the original number x.
+*If they are the same (k == x), the function returns true, indicating that x is a palindrome. Otherwise, it returns false.
+
+@Example Walkthrough:
+*Let's say x = 121:
+*Initial n = 121, k = 0
+*Iteration 1: d = 1, k = 0 * 10 + 1 = 1, n = 121 / 10 = 12
+*Iteration 2: d = 2, k = 1 * 10 + 2 = 12, n = 12 / 10 = 1
+*Iteration 3: d = 1, k = 12 * 10 + 1 = 121, n = 1 / 10 = 0
+*k is now 121, which equals the original number x, so the function returns true.
+
+
+Complexity:
+*Time Complexity: O(log(x)), where x is the input number. The loop runs for each digit in the number, which is proportional to the number of digits (logarithmic in terms of the number of digits).
+*Space Complexity: O(1), as the solution uses only a fixed amount of extra space for the variables n, d, and k.
+
+
+Edge Cases:
+Single-digit numbers (e.g., 7) are palindromes since they read the same forward and backward.
+Numbers that end in zero (e.g., 10) are not palindromes unless they are zero itself (e.g., 0).
+Overflow is handled carefully, ensuring the solution remains within the bounds of a 32-bit signed integer.

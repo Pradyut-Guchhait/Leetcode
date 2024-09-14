@@ -1,0 +1,61 @@
+Initialize Variables:
+alen and blen store the lengths of the input binary strings a and b.
+s is a temporary string used to pad zeros if the strings are of unequal length.
+
+Equalize the Length of the Strings:
+If the length of a is greater than b, pad b with zeros on the left to make its length equal to a.
+If the length of b is greater than a, pad a with zeros on the left to match the length of b.
+
+Binary Addition from Right to Left:
+Now that both strings are of the same length, you start adding the binary digits from right to left (least significant bit to most significant bit).
+In each iteration, the sum is calculated by:
+Converting a[i] and b[i] from characters ('0' or '1') to integers (0 or 1).
+Adding the corresponding bits from a and b along with the carry from the previous step.
+The result of the current bit (sum % 2) is prepended to the result string ans.
+The carry for the next iteration is calculated as sum / 2.
+
+Handling the Carry:
+After the loop, if there's still a carry left, it means an additional 1 should be added to the front of the result string ans.
+
+Return the Result:
+The final binary sum is stored in the string ans, which is returned as the result.
+
+Example Walkthrough:
+Let's consider an example where a = "1010" and b = "1011".
+Initial State:
+
+a = "1010"
+b = "1011"
+carry = 0
+After padding, both strings are of equal length.
+Step-by-Step Addition:
+
+Iteration 1 (i = 3):
+
+a[3] = 0, b[3] = 1, carry = 0.
+Sum = 0 + 1 + 0 = 1.
+ans = "1", carry = 0.
+Iteration 2 (i = 2):
+
+a[2] = 1, b[2] = 1, carry = 0.
+Sum = 1 + 1 + 0 = 2.
+ans = "01", carry = 1 (since sum = 2).
+Iteration 3 (i = 1):
+
+a[1] = 0, b[1] = 0, carry = 1.
+Sum = 0 + 0 + 1 = 1.
+ans = "101", carry = 0.
+Iteration 4 (i = 0):
+
+a[0] = 1, b[0] = 1, carry = 0.
+Sum = 1 + 1 + 0 = 2.
+ans = "0101", carry = 1.
+
+Final Step:
+After the loop, carry = 1, so prepend "1" to the result.
+ans = "10101".
+The final result is "10101".
+
+Complexity:
+Time Complexity: O(max(n, m)), where n is the length of string a and m is the length of string b. The algorithm iterates through the longest string.
+Space Complexity: O(max(n, m)), because the result string can be at most one character longer than the longest input string (due to possible carry).

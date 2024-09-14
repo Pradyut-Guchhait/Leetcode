@@ -1,0 +1,44 @@
+Detailed Logic:
+Initialize Variables:
+i is initialized to s.size() - 1, which points to the last character in the string s.
+length is initialized to 0, to keep track of the length of the last word.
+
+Skip Trailing Spaces:
+The first while loop skips any trailing spaces at the end of the string (if present). This is done by decrementing i until a non-space character is found.
+
+Count the Length of the Last Word:
+Once the trailing spaces are skipped, the second while loop counts the characters in the last word.
+The loop continues until either a space is encountered (i.e., the end of the last word) or the beginning of the string is reached (i >= 0).
+For each character that belongs to the last word (i.e., a non-space character), length is incremented, and i is decremented to move backward through the string.
+
+Return the Result:
+After the second loop completes, length contains the number of characters in the last word. The function returns this value.
+
+Example Walkthrough:
+Let's consider an example with s = "Hello World ".
+Initial State:
+s = "Hello World "
+i = 12 (index of the last character)
+length = 0
+
+Step 1: Skip Trailing Spaces:
+The first while loop skips spaces at the end.
+After skipping, i = 10 (points to the last character 'd' of "World").
+
+Step 2: Count the Last Word:
+The second while loop counts the characters in the last word "World".
+i = 10: s[10] == 'd', so length = 1, i = 9.
+i = 9: s[9] == 'l', so length = 2, i = 8.
+i = 8: s[8] == 'r', so length = 3, i = 7.
+i = 7: s[7] == 'o', so length = 4, i = 6.
+i = 6: s[6] == 'W', so length = 5, i = 5.
+
+Step 3: Stop Counting:
+The loop stops when i = 5 because s[5] == ' ' (a space is found).
+
+Return the Result:
+The function returns length = 5, which is the length of the last word "World".
+
+Complexity:
+Time Complexity: O(n), where n is the length of the string. The function processes each character at most once.
+Space Complexity: O(1), as no extra space is used except for a few variables.

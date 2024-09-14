@@ -1,0 +1,18 @@
+To solve this problem, you can iterate through the array from the last digit to the first, adding one to the last digit and handling any carry that results. If a digit plus one results in a value of 10, you set that digit to 0 and carry 1 to the next digit. If you reach the start of the array and still have a carry, you need to add a new digit at the beginning of the array.
+
+Explanation of the Code:
+
+1.Iterate Backwards:
+The loop starts from the last element of the digits array and moves towards the first element.
+
+2.Handle Digits Less Than 9:
+If the current digit is less than 9, you can simply add 1 to this digit and return the result. There’s no need to process further digits as there’s no carry to propagate.
+
+3.Handle the Digit 9:
+If the digit is 9, it turns into 0, and the carry is passed to the next more significant digit.
+
+4.Handling All 9's Case:
+If all digits were 9 (e.g., [9, 9, 9]), after the loop, all digits will be 0. You then insert a 1 at the beginning of the array to represent the number correctly (e.g., [1, 0, 0, 0]).
+
+5.Return the Result:
+The modified digits array is returned, representing the number incremented by one.

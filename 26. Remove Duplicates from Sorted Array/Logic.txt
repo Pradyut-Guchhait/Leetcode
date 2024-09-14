@@ -1,0 +1,53 @@
+Detailed Logic:
+
+1.Initial Check:
+*If the input array nums is empty (nums.size() == 0), the function returns 0 immediately, since there are no elements to process.
+
+2.Index Tracking (ind):
+*A variable ind is initialized to 1. This variable tracks the position in the array where the next unique element should be placed.
+*The first element is always unique, so we start with ind = 1.
+
+3.Iterating Through the Array:
+*A for loop starts from the second element (i = 1) and goes through the rest of the array.
+	Inside the loop:
+		^Duplicate Check: If the current element nums[i] is equal to the previous element nums[i-1], 		it means it's a duplicate, and the loop simply continues to the next iteration.
+		^Unique Element: If nums[i] is not equal to nums[i-1], it's a unique element. It should be 		placed in the position indicated by ind. The ind index is then incremented by 1.
+
+4.Erase Redundant Elements:
+*After the loop, ind will be the index of the first redundant element. The function uses nums.erase(nums.begin() + ind, nums.end()) to remove all elements from this index to the end of the array. *These are the leftover duplicates that are no longer needed.
+
+5.Return the New Length:
+*Finally, the function returns nums.size(), which gives the new length of the array containing only unique elements.
+
+
+@Example Walkthrough:
+Let's consider an example with nums = [1, 1, 2, 2, 3]:
+
+Initial State:
+
+nums = [1, 1, 2, 2, 3]
+ind = 1
+Iteration 1 (i = 1):
+
+nums[1] == nums[0] (both are 1), so continue without doing anything.
+Iteration 2 (i = 2):
+
+nums[2] != nums[1] (2 vs. 1), so nums[ind] = nums[2] (i.e., nums[1] = 2).
+Increment ind to 2.
+nums now looks like [1, 2, 2, 2, 3].
+Iteration 3 (i = 3):
+
+nums[3] == nums[2] (both are 2), so continue without doing anything.
+Iteration 4 (i = 4):
+
+nums[4] != nums[3] (3 vs. 2), so nums[ind] = nums[4] (i.e., nums[2] = 3).
+Increment ind to 3.
+nums now looks like [1, 2, 3, 2, 3].
+After the loop, ind = 3, so we erase elements from nums[3] onwards, leaving nums = [1, 2, 3].
+
+The function returns 3, which is the new length of the array with unique elements.
+
+
+Complexity:
+Time Complexity: O(n), where n is the number of elements in the array. Each element is processed once.
+Space Complexity: O(1), as the function uses a constant amount of extra space.

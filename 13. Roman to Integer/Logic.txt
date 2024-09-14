@@ -1,0 +1,46 @@
+Detailed Logic:
+
+1.Initialize Values:
+*value: This will store the final integer result.
+*prev_value: Tracks the value of the previous Roman numeral character.
+*current_value: Holds the value of the current Roman numeral character being processed.
+
+2.Mapping Roman Numerals:
+*An array roman_values[128] is used to map the ASCII values of Roman numeral characters to their respective integer values. This allows for quick lookup of each character's value during iteration.
+
+3.Iterate Through the Roman Numeral String:
+*The loop iterates over each character in the Roman numeral string s.
+
+4.Determine Whether to Add or Subtract:
+*Addition: If the prev_value is greater than or equal to current_value, simply add current_value to value.
+*Subtraction: If prev_value is smaller than current_value, this means a subtraction situation (like IV or IX). *In this case, add current_value and subtract 2 * prev_value. Subtracting twice the prev_value corrects the earlier addition of prev_value (from the previous iteration) and accounts for the subtraction rule in Roman numerals.
+
+5.Update prev_value:
+*After processing each character, prev_value is updated to the current_value for the next iteration.
+
+6.Return the Result:
+*After the loop completes, value holds the integer equivalent of the Roman numeral string, which is then returned.
+
+
+@Example Walkthrough:
+Let's consider the Roman numeral XIV (which should convert to 14):
+*Start with value = 0, prev_value = 0.
+*Iteration 1: s[i] = 'X', current_value = 10. Since prev_value = 0 is less than current_value = 10, add 10 to value, making value = 10. Update prev_value = 10.
+*Iteration 2: s[i] = 'I', current_value = 1. Since prev_value = 10 is greater than current_value = 1, add 1 to value, making value = 11. Update prev_value = 1.
+*Iteration 3: s[i] = 'V', current_value = 5. Since prev_value = 1 is less than current_value = 5, add 5 - 2 * 1 = 3 to value, making value = 14. Update prev_value = 5.
+
+*The final result is 14, which is the correct integer value for the Roman numeral XIV.
+
+
+Complexity:
+Time Complexity: O(n), where n is the length of the Roman numeral string. Each character is processed exactly once.
+Space Complexity: O(1), since the function uses a fixed amount of extra space regardless of the input size.
+
+
+
+
+
+
+
+
+

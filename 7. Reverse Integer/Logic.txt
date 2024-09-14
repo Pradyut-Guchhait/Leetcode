@@ -1,0 +1,29 @@
+Detailed Explanation:
+
+1.Variables Initialization:
+*n is used to store the last digit of x as we extract it.
+*rev is initialized to 0 and will store the reversed integer.
+
+2.Loop for Reversing the Integer:
+*The loop runs until x becomes 0.
+*In each iteration:
+	^n = x % 10; extracts the last digit of x.
+	^x = x / 10; removes the last digit from x.
+	^rev = rev * 10 + n; appends the extracted digit n to the current rev.
+*This effectively reverses the digits of x.
+
+3.Overflow Handling:
+*After reversing, the code checks whether rev is within the bounds of a 32-bit signed integer. The valid range for a 32-bit signed integer is from -2^31 (INT_MIN = -2147483648) to 2^31 - 1 (INT_MAX = 2147483647).
+*If rev is outside this range, the function returns 0, as the problem requires.
+
+4.Return the Result:
+*If rev is within the valid range, the function returns rev.
+
+Edge Cases:
+*Negative Numbers: The code handles negative numbers automatically because the sign is preserved by the operations performed (x % 10 and x / 10 work correctly with negative numbers).
+*Overflow: The use of long long int for rev helps in detecting overflow before converting it back to int.
+*Trailing Zeros: Trailing zeros in the original number (e.g., 120) are naturally removed by the reversal process.
+
+Complexity:
+*Time Complexity: O(log(x)), where x is the number of digits in the input. The loop runs for each digit.
+*Space Complexity: O(1), as only a few variables are used for computation, with no additional data structures required.

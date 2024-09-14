@@ -1,0 +1,18 @@
+Solution:
+
+The most efficient solution involves using a hash map (dictionary) to track the indices of the numbers as you iterate through the list. Here’s a simple explanation:
+
+1.Create a hash map to store the number and its index.
+2.Iterate through the list of numbers. For each number, calculate the difference between the target and the current number.
+3.Check if this difference is already in the hash map. If it is, you’ve found the two numbers that add up to the target.
+4.If the difference is not in the hash map, add the current number and its index to the hash map.
+
+
+Explanation of the code:
+
+*Create an unordered_map numMap: This will store each number and its index as you iterate through the array.
+*Loop through the nums array: For each element:
+*Calculate the complement needed to reach the target when added to the current element.
+*Check if the complement exists in numMap. If it does, return the indices of the current element and the complement.
+*If the complement is not found, store the current element and its index in numMap for future reference.
+*Return {} if no solution is found, which should not happen in this problem because it's guaranteed there is exactly one solution.

@@ -1,0 +1,19 @@
+To solve this problem, you'll need to traverse both linked lists simultaneously, adding corresponding digits along with any carry from the previous digit. You'll need to handle cases where the linked lists are of different lengths and manage the carry properly.
+
+Explanation of the code:
+1.Initialize variables:
+*carry to handle values that exceed 9.
+*dummy as a dummy head node to simplify edge cases.
+*l as a pointer to build the resulting linked list.
+
+2.Iterate through both linked lists:
+*Compute the sum including the carry.
+*Update the sum and carry accordingly.
+*Create a new node with the resulting digit and append it to the result list.
+*Move to the next nodes in both input lists if they are available.
+
+3.Handle any remaining carry:
+*If there’s a carry left after processing both lists, add it as a new node.
+
+4.Return the result:
+*Return dummy->next to skip the dummy node and get the head of the result list.

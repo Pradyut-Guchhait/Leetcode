@@ -1,0 +1,18 @@
+It works by merging the two arrays into a single sorted array, then calculating the median from the merged array. Here’s an explanation and some comments:
+
+Explanation:
+
+1.Merging Two Arrays:
+*You create a new array, mergedArray, to hold the elements of both input arrays nums1 and nums2.
+*Two pointers, i and j, are used to traverse nums1 and nums2, respectively.
+*The elements from both arrays are compared and the smaller element is placed into mergedArray.
+
+2.Handling Remaining Elements:
+*After one of the arrays is fully traversed, any remaining elements in the other array are copied to mergedArray.
+
+3.Finding the Median:
+*If the total number of elements is even, the median is the average of the two middle elements.
+*If odd, the median is the middle element of the merged array.
+
+4.Memory Management:
+*After computing the median, the dynamically allocated memory for mergedArray is freed to prevent memory leaks.

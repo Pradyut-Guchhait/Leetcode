@@ -1,0 +1,46 @@
+Detailed Logic:
+
+1.Index Initialization:
+*The variable index is initialized to 0. This variable keeps track of the position in the array where the next non-val element should be placed.
+
+2.Iterating Through the Array:
+*A for loop iterates over each element of the array nums.
+*For each element, it checks if nums[i] is not equal to the specified value val.
+*If the current element is not equal to val, it means that this element should be retained in the array.
+*The element nums[i] is then copied to nums[index], and the index is incremented by 1.
+*If the current element is equal to val, it is effectively skipped, and the loop continues to the next element.
+
+3.Returning the New Length:
+*After the loop completes, the value of index will represent the number of elements in the array that are not equal to val.
+*The function returns this index, which is the new length of the array after removing all occurrences of val.
+
+@Example Walkthrough:
+Let's consider an example with nums = [3, 2, 2, 3] and val = 3.
+
+Initial State:
+
+nums = [3, 2, 2, 3]
+val = 3
+index = 0
+Iteration 1 (i = 0):
+
+nums[0] == val (3 == 3), so do nothing and continue to the next element.
+Iteration 2 (i = 1):
+
+nums[1] != val (2 != 3), so copy nums[1] to nums[index] (i.e., nums[0] = 2).
+Increment index to 1.
+nums now looks like [2, 2, 2, 3].
+Iteration 3 (i = 2):
+
+nums[2] != val (2 != 3), so copy nums[2] to nums[index] (i.e., nums[1] = 2).
+Increment index to 2.
+nums remains [2, 2, 2, 3].
+Iteration 4 (i = 3):
+
+nums[3] == val (3 == 3), so do nothing and continue.
+After the loop, index = 2, indicating that there are two elements in the array that are not equal to val. The array nums is modified to [2, 2] (with the first two positions filled with non-val elements), and the function returns 2.
+
+
+Complexity:
+Time Complexity: O(n), where n is the number of elements in the array. Each element is processed once.
+Space Complexity: O(1), as the function uses only a few extra variables, and the array is modified in-place.

@@ -1,0 +1,21 @@
+To solve this problem efficiently, you can use the sliding window technique combined with a hash set or hash map to keep track of characters and their positions. The goal is to maintain a window of characters that does not contain any duplicates and maximize the length of this window.
+
+Here's a breakdown of how it works:
+
+1.Array ss[128]: This array is used as a Boolean lookup table to keep track of whether a character is currently in the window. It assumes an ASCII character set, which has 128 characters.
+
+2.Two Pointers:
+*i is the left pointer of the sliding window.
+*j is the right pointer of the sliding window.
+
+3.Expand the Window:
+*The for loop iterates with the j pointer from the start to the end of the string, expanding the window to include s[j].
+
+4.Contract the Window:
+*If a duplicate character (s[j]) is found (i.e., ss[s[j]] is true), the while loop moves the i pointer to the right until the duplicate character is removed from the window, and updates the Boolean array to reflect this.
+
+5.Update the Result:
+*ans is updated with the maximum length of the substring found so far.
+
+6.Return the Result:
+*Finally, the length of the longest substring without repeating characters is returned.
